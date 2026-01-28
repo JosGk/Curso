@@ -1,14 +1,14 @@
 import { Router } from "express";
 import userRouter from "./user.ts";
 
-const router = Router();
+const configrouter = Router();
 
-router.get('/', (_, res) => {
-    res.json({
-        message: 'Hola desde api'
-    });
-});
+// configrouter.get('/', (_, res) => {
+//     res.json({
+//         message: 'Hola desde api'
+//     });
+// });
 
-router.use('/users',userRouter)
+configrouter.use('/users',userRouter)
 
-export default router;
+export default configrouter;
