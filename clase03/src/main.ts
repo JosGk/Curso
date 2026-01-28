@@ -1,6 +1,6 @@
 //const exprees = require('express');
 import express from 'express';
-import router from "./routes/index.ts";
+import configrouter from "./routes/index.ts";
 
 const PORT = 3001;
 
@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 
 });
 
-app.use('/api', router);
+app.use('/api', configrouter);
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);

@@ -1,11 +1,9 @@
 import { Router } from "express";
+import { getAllUsersList, getUserById } from "../controllers/users/users.controllers.ts";
 
 const router = Router();
 
-router.get('/', (_,res) => {
-    res.json({
-        message: 'Usuarios API'
-    })
-})
+router.get('/', getAllUsersList);
+router.get('/:id', getUserById);
 
 export default router;
