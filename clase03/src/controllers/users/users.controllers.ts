@@ -1,9 +1,9 @@
 import type { Response, Request} from 'express'
 
 const alluserslist = [ 
-    { id: 1, username: 'user1', email: 'user1@example.com'},
-    { id: 2, username: 'user2', email: 'user2@example.com'},
-    { id: 3, username: 'user3', email: 'user3@example.com'}
+    { id: 1, username: 'Pedro', email: 'user1@example.com'},
+    { id: 2, username: 'Juan', email: 'user2@example.com'},
+    { id: 3, username: 'Carlos', email: 'user3@example.com'}
 ] 
 
 export const getAllUsersList=(req: Request, res: Response) => {
@@ -18,6 +18,26 @@ export const getUserById =(req: Request, res: Response) => {
 
     const user = alluserslist.find(user => {
         if(user.id === Number(id)) {
+            return user
+        }
+        return null
+    }) 
+
+    if(!user) {
+      res.status(404).json({ message: 'El usuario no fue encontrado'})
+    }
+    
+    res.json(user)
+
+}
+
+export const getUserByName =(req: Request, res: Response) => {
+
+    const name = req.query.name
+    const id = req.query.id
+//
+    const user = alluserslist.find(user => {
+        if(user.username.toLowerCase() === String(name).toLowerCase() && user.id === Number(id)) {
             return user
         }
         return null

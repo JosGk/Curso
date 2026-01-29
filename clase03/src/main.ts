@@ -1,10 +1,13 @@
 //const exprees = require('express');
 import express from 'express';
 import configrouter from "./routes/index.ts";
+import morgan from 'morgan'
 
 const PORT = 3001;
 
 const app = express();
+
+app.use(morgan('tiny'));
 
 app.get('/', (req, res) => {
 
