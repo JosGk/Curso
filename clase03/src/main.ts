@@ -8,6 +8,7 @@ const PORT = 3001;
 const app = express();
 
 app.use(morgan('tiny'));
+app.use(express.json());
 
 app.get('/', (req, res) => {
 
